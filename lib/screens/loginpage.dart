@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task1/screens/chatbox.dart';
 import 'package:task1/screens/signup.dart';
 
 class LoginPagee extends StatefulWidget {
@@ -22,14 +23,14 @@ class _LoginPageeState extends State<LoginPagee> {
             padding: const EdgeInsets.only(top: 20),
             child: Text('welcome back! login with your credentials'),
           ),
-           Row(
-             children: [
-               Padding(
-                 padding: const EdgeInsets.only(top: 80,left: 40),
-                 child: Text('Email',),
-               ),
-             ],
-           ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 80,left: 40),
+                child: Text('Email',),
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 30,right: 30),
             child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),hintText: 'Enter Email'),
@@ -51,9 +52,14 @@ class _LoginPageeState extends State<LoginPagee> {
           SizedBox(height: 35,),
           Padding(
             padding: const EdgeInsets.only(left:50,right: 50),
-            child: Container(
-              width: double.maxFinite,height: 60,decoration: BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(25)),
-              child: Center(child: Text('Login')),
+
+            child: GestureDetector(
+              onTap:() {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatBox(),));
+              }, child: Container(
+                width: double.maxFinite,height: 60,decoration: BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(25)),
+                child: Center(child: Text('Login')),
+              ),
             ),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +77,9 @@ class _LoginPageeState extends State<LoginPagee> {
 
           ),
         ],
+
       ),
     );
   }
 }
+
